@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta charset="utf-8">
+       <style>
+        .container{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            text-align: center;
+        }
+
+        .item{
+            border: 1px solid black;
+            justify-content: center;
+        }
+        .item:nth-child(13){
+            grid-column: auto / span 3;
+        }
+       </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="item">테이블 header1</div>
+            <div class="item">테이블 header2</div>
+            <div class="item">테이블 header3</div>
+
+            <div class="item">A</div>
+            <div class="item">B</div>
+            <div class="item">C</div>
+
+            <div class="item">D</div>
+            <div class="item">E</div>
+            <div class="item">F</div>
+
+            <div class="item">G</div>
+            <div class="item">H</div>
+            <div class="item">I</div>
+
+            <div class="item">Table footer</div>
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- HTML의 버전을 알려줌 -->
+<html>
+    <!-- 개발자들이 저장해놓는 정보들? 이용자에겐 보이지 않음-->
+    <head>
+        <!-- 인코딩 형식 지정 -->
+        <meta charset = "utf-8" />
+        <!-- 브라우저 창을 띄웠을 때, 나타나는 제목 -->
+        <title>브라우저 제목</title>
+
+        <link rel="stylesheet" href="css_sheet.css">
+        <script>
+            function mergeCells() {
+                var tables = document.getElementsByTagName("table");
+                for (var k = 0; k < tables.length; k++) {
+                    var table = tables[k];
+                    var rows = table.rows;
+                    document.getElementById("rows").textContent=typeof(rows)
+                    var columns = table.rows[0].cells
+                    document.getElementById("cells")=columns
+                    var i, j, rowSpan, cellValue;
+
+                    for (i = 0; i < columns.length; i++) {
+                        rowSpan = 1;
+                        cellValue = rows[0].cells[i].innerHTML;
+
+                        for (j = 1; j < rows.length; j++) {
+                            if (cellValue === rows[j].cells[0].innerHTML) {
+                                rowSpan++;
+                                rows[j].deleteCell(0);
+                            } else {
+                                break;
+                            }
+                        }
+                        rows[0].cells[i].rowSpan = rowSpan;
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body onload = "mergeCells()">
+        <table>
+            <thead>
+                <tr>
+                    <td>테이블 Header1</td>
+                    <td>테이블 Header2</td>
+                    <td>테이블 Header3</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>F</td>
+                </tr>
+                <tr>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>I</td>
+                </tr>
+                <!-- <tr>
+                    <td colspan="3" align = "center" bgcolor = "blue">
+                        테이블 Footer
+                    </td>
+                </tr> -->
+            </tbody>
+        </table>
+        <div id="rows"></div>
+        <div id="cells"></div>
+    </body>
+</html>

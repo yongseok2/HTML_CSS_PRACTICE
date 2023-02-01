@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .container{
+                border:4px solid royalblue;
+            }
+            @media (max-width:400px){
+                .container{
+                    border: 1px dotted red;
+                    text-align: left;
+                }
+            }
+
+            @media (max-width:800px) and (min-width:400px){
+                .container{
+                    border: 1px solid black;
+                    text-align: center;
+                }
+            }
+
+            @media (max-width:1200px) and (min-width:800px){
+                .container{
+                    border: 1px dotted blue;
+                    text-align: right;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">Hello World</div>
+    </body>
+</html>
+
